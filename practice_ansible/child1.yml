@@ -1,0 +1,16 @@
+---
+- name: fetch file from node to controller and copy file from controller to nodes
+  hosts: 172.31.2.253
+  tasks:
+    - name: fetch file from node1 to controller
+      fetch:
+       src: /home/ubuntu/file1
+       dest: /home/ubuntu/file_1
+- name: copy file from controller to nodes
+  hosts: all
+  tasks:
+   - name: copy file 
+     copy:
+      src: 172.31.2.253/home/ubuntu/file_1
+      dest: /home/ubuntu/nani_123      
+...

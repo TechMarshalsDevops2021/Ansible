@@ -1,0 +1,10 @@
+---
+- name: uninstall packages
+  hosts: all
+  tasks:
+   - name: uninstall packages
+     apt:
+      name: ['git','maven','apache2','tree']
+      state: absent      
+      update_cache: yes     
+...

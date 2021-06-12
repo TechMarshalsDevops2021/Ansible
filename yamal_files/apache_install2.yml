@@ -1,0 +1,10 @@
+---
+- name: uninstall apache on Nodes
+  hosts: all
+  tasks:
+   - name: uninstall apache on all nodes
+     apt:
+       name: apache2
+       state: absent
+       update_cache: yes 
+...

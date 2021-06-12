@@ -1,0 +1,11 @@
+---
+- name: working on nginx
+  hosts: all
+  tasks:
+   - name: start nginx container on all nodes
+     docker_container:
+      image: nginx
+      name: webserver
+      ports:
+       - 7788:80       
+...

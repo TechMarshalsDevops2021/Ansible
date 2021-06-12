@@ -1,0 +1,10 @@
+---
+- name: Install the packages
+  hosts: all
+  tasks:
+  - name: Install packages 
+    apt:
+     name: ['git','maven','apache2','openjdk-8-jdk']
+     state: present
+     update_cache: yes    
+...

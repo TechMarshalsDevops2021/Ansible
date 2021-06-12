@@ -1,0 +1,15 @@
+---
+- name: Create a user and displat the output
+  hosts: all
+  tasks:
+   - name: create a user on nodes
+     user:
+      name: nani
+      password: nani
+      home: /home/nani
+      uid: 1330
+     register: a
+   - name: display the output
+     debug:
+      var: a     
+...

@@ -1,0 +1,26 @@
+---
+- name: create a file & create the directory if the file exists
+  hosts: all
+  tasks:
+   - name: create a file
+     file:
+      name: /home/ubuntu/file_nani
+      state: touch
+     register: b
+   - name: display the output
+     debug: 
+      var: b
+   - name: Check if the created file exists or not
+     stat:
+      path: /home/ubuntu/file_nani
+     register: b
+   - name: display the output
+     debug:
+      var: b
+   - name: create the directory of the above file exists
+     file:
+      name: dir_abcd
+      state: directory
+     when:
+      b.stat.exists== true      
+...

@@ -1,0 +1,10 @@
+---
+- name: uninstall Tree package
+  hosts: all
+  tasks:
+   - name: Tree
+     apt:
+      name: tree
+      state: absent
+      update_cache: yes
+...

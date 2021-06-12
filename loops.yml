@@ -1,0 +1,10 @@
+---
+- name: Install softwares git, maven, java
+  hosts: all
+  tasks:
+   - name: Install packages
+     apt:
+      name: ['git','apache2']
+      state: present
+      update_cache: yes
+...

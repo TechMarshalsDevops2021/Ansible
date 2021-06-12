@@ -1,0 +1,15 @@
+---
+- name: start, stop and remove httpd as a container
+  hosts: all
+  tasks:
+   - name: start httpd as a container
+     docker_container:
+      image: httpd
+      name: httpd_1
+      ports:
+       - 7070:80
+   - name: stop httpd container
+     docker_container:
+      name: httpd_1
+      state: stopped     
+...

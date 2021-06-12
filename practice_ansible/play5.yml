@@ -1,0 +1,14 @@
+---
+- name: Install and uninstall packages
+  hosts: all
+  tasks:
+   - name: unstall tree, install git, uninstall maven
+     apt:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+      update_cache: "{{item.c}}"
+     with_items:
+      - {a: tree,b: absent,c: yes}
+      - {a: git,b: present,c: yes}
+      - {a: maven,b: absent,c: yes}       
+...

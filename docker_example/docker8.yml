@@ -1,0 +1,27 @@
+---
+- name: setting up CI CD
+  hosts: all
+  tasks:
+   - name: Install jenkins on all nodes
+     docker_container:    
+      image: jenkins/jenkins
+      name: jenkins_server
+      ports: 
+       - 6060:8080
+   - name: install tomcat
+     docker_container:
+      image: tomcat
+      name: qaserver
+      ports:
+       - 6062:8080
+      links:
+       - jenkins_server:jenkins1
+   - name: install tomcat 
+     docker_container:
+      image: tomcat
+      name: prodserver
+      ports:
+       - 6064:8080
+      links:
+       - jenkins_server:jenkins2
+...

@@ -1,0 +1,9 @@
+---
+- name: remove httpd image
+  hosts: all
+  tasks:
+   - name: remove http image
+     docker_image: 
+      name: httpd
+      state: absent     
+...

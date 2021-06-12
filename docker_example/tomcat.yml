@@ -1,0 +1,11 @@
+---
+- name: working on tmcat
+  hosts: all
+  tasks:
+   - name: start tomcat container on all nodes
+     docker_container:
+      image: tomcat
+      name: appserver
+      ports:
+       - 7070:8080       
+...

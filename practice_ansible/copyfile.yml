@@ -1,0 +1,9 @@
+---
+- name: copy file from controller to nodes
+  hosts: all
+  tasks:
+   - name: copy file
+     copy:
+      src: 172.31.2.253/home/ubuntu/nani_1
+      dest: /home/ubuntu/reddy_1
+...

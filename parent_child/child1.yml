@@ -1,0 +1,7 @@
+---
+- name: Install tomcat
+  apt:
+   name: ['tomcat9','tomcat9-admin']
+   state: absent
+  notify: restart tomcat 
+...

@@ -1,0 +1,10 @@
+---
+- name: To install httpd
+  hosts: all
+  tasks: 
+  - name: To install httpd
+    apt:
+     name: httpd
+     state: present
+     update_cache: yes     
+...

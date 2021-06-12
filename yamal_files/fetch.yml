@@ -1,0 +1,16 @@
+---
+- name: Fetch file from node 1
+  hosts: 172.31.2.253
+  tasks:
+   - name: fetch file from node1
+     fetch:
+      src: /home/ubuntu/file_1234
+      dest: /home/ubuntu/file_abcd
+- name: copy file fetched from node1 to all nodel
+  hosts: all
+  tasks:
+   - name: to copy file
+     copy:
+      src: /home/ubuntu/file_abcd/172.31.2.253/home/ubuntu/file_1234
+      dest: /home/ubuntu/file_1234 
+...

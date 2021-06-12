@@ -1,0 +1,29 @@
+---
+- name: Configure apache2
+  hosts: all
+  tasks:
+   - name: Install apache2
+     apt:
+      name: apache2
+      state: present
+      update_cache: yes
+     notify: restart apache
+   - name: Edit deafult page apache
+     copy:
+      content: "Hello world! This is Tirupathi Reddy"
+      dest: /var/www/html/index.html
+     notify: check url response
+  handlers:
+   - name: check url response
+     uri:
+      url: "{{item}}"
+      status_code: 200
+     with_items:
+      - http://18.218.222.65:80
+      - http://18.117.9.245:80
+      - http://52.14.19.174:80
+   - name: restart apache
+     service:
+      name: apache2
+      state: restarted     
+...

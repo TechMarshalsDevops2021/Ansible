@@ -1,0 +1,11 @@
+---
+- name: call the childs
+  hosts: all
+  tasks:
+   - name: call the childs
+     include: "{{item}}"
+     with_items:
+      - child1.yml
+      - child2.yml
+      - child3.yml        
+...

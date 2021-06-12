@@ -1,0 +1,13 @@
+---
+- name: login in to hub.docker.com and push the coustomised image
+  hosts: 172.31.2.253
+  tasks:
+   - name: login to hub.docker.com
+     docker_login:
+      username: tirupathireddy
+      password: nani@251995
+   - name: push the image
+     docker_image:
+      name: tirupathireddy/alpine123
+      push: yes
+...

@@ -1,0 +1,7 @@
+---
+handlers:
+ - name: restart tomcat
+   service:
+    name: tomcat9
+    state: restarted   
+...

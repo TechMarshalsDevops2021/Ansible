@@ -1,0 +1,14 @@
+---
+- name: INstall packages
+  hosts: all
+  tasks:
+   - name: Install git
+     apt:
+      name: git
+      state: present
+     tags: git_install
+   - name: install Maven
+     apt:
+      name: maven
+      state: present      
+...

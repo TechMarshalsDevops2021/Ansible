@@ -1,0 +1,31 @@
+---
+- name: Verify apache installation
+  hosts: all
+  tasks:
+  - name: Install apache
+    apt:
+     name: apache2
+     state: present
+     update_cache: yes
+    notify:
+     - Restart apache       
+  - name: change the default page
+    copy:
+     content: "Hello world"
+     dest: /var/www/html/index.html
+    notify:
+     - Restart apache       
+  - name: Check URL response
+    uri:
+     url: http://3.142.201.97/
+     url: http://3.142.210.133/
+     url: http://3.142.36.93/
+     status_code: 200
+    notify:
+     _ Restart apache       
+  handlers:
+    - name: Restart apache
+      service:
+       name: apache2
+       state: restarted
+...
